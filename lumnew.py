@@ -1,85 +1,61 @@
 from PIL import Image
 import numpy as np
+import os
 
 # Parámetros
 MIN_INTENSITY = 170
 MAX_INTENSITY = 250
-REGION_SIZE = 50
+IMAGE_FOLDER = 'Images'  # Asegúrate de actualizar esto a la ubicación de tus imágenes
+IMAGE_EXTENSIONS = ['.png']  # Las extensiones de archivos que quieres procesar
 
 
 def sum_channels(channels):
     red = channels[0]
     green = channels[1]
     blue = channels[2]
-
-    sum = 0.2989 * red + 0.5870 * green + 0.1140 * blue
-
-    return round(sum, 2)
+    return 0.2989 * red + 0.5870 * green + 0.1140 * blue
 
 
-def check_illumination(img_path):
-    # Leer imagen
+def check_illumination_focus_area(img_path):
     img = Image.open(img_path).convert('RGB')
-
-    # Convertir a array
     img_array = np.array(img)
+    w, h = img.size
 
-    # Obtener region central
-    x_center = img_array.shape[1] // 2
-    y_center = img_array.shape[0] // 2
+    # Definir los límites de los cuadrantes a analizar
+    quad_width = w // 6
+    quad_height = h // 4
+    left = quad_width * 1
+    upper = quad_height * 1
+    right = quad_width * 3
+    lower = quad_height * 3
 
-    region = img_array[y_center - REGION_SIZE // 2: y_center + REGION_SIZE // 2,
-             x_center - REGION_SIZE // 2: x_center + REGION_SIZE // 2]
-
-    # Promediar canales
-    red = region[:, :, 0].mean()
-    green = region[:, :, 1].mean()
-    blue = region[:, :, 2].mean()
-
-    # Sumar canales
+    focus_array = img_array[upper:lower, left:right]
+    red = focus_array[:, :, 0].mean()
+    green = focus_array[:, :, 1].mean()
+    blue = focus_array[:, :, 2].mean()
     intensity = sum_channels([red, green, blue])
-
-    # Verificar límites
-    is_valid = (intensity >= MIN_INTENSITY) and (intensity <= MAX_INTENSITY)
-
-    if is_valid:
-        status = "GO"
-    else:
-        status = "NO GO"
-
     return {
-        "status": status,
-        "intensity": intensity
+        "status": "GO" if MIN_INTENSITY <= intensity <= MAX_INTENSITY else "NO GO",
+        "intensity": intensity,
+        "red": red,
+        "green": green,
+        "blue": blue
     }
 
 
-# Probar con imágenes
-test_images = [
-    'Images/1.PNG',
-    'Images/2.PNG',
-    'Images/8.PNG',
-    'Images/9.PNG',
-    'Images/11.PNG',
-    'Images/12.PNG',
-    'Images/14.PNG',
-    'Images/18.PNG',
-    'Images/19.PNG',
-    'Images/20.PNG',
-    'Images/21.PNG',
-    'Images/22.PNG',
-    'Images/24.PNG',
-    'Images/26.PNG',
-    'Images/27.PNG',
-    'Images/28.PNG',
-    'Images/29.PNG',
-    'Images/32.PNG',
-    'Images/36.PNG',
-]
+def process_images(image_folder):
+    for file_name in os.listdir(image_folder):
+        if any(file_name.lower().endswith(ext) for ext in IMAGE_EXTENSIONS):
+            img_path = os.path.join(image_folder, file_name)
+            result = check_illumination_focus_area(img_path)
+            print(f"Image: {file_name}")
+            print(f"Status: {result['status']}")
+            print(f"Intensity: {result['intensity']:.2f}")
+            print(f"Red: {result['red']:.2f}")
+            print(f"Green: {result['green']:.2f}")
+            print(f"Blue: {result['blue']:.2f}")
+            print("-" * 30)
 
-for img in test_images:
-    result = check_illumination(img)
-    print(f"Image {img}: {result['status']}, Intensity: {result['intensity']}")
 
-    '''
-    
-    '''
+# Ejemplo de uso
+process_images(IMAGE_FOLDER)
