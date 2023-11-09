@@ -1,49 +1,67 @@
 from PIL import Image
 import numpy as np
-import os
-from concurrent.futures import ThreadPoolExecutor
 
-def check_image_illumination(image_path, min_intensity=170, max_intensity=250, region_size=50):
-    try:
-        with Image.open(image_path) as img:
-            img_array = np.array(img)
+# Parámetros
+MIN_INTENSITY = 170
+MAX_INTENSITY = 250
 
-            center_x, center_y = img_array.shape[1] // 2, img_array.shape[0] // 2
-            central_region = img_array[center_y - region_size // 2:center_y + region_size // 2,
-                                       center_x - region_size // 2:center_x + region_size // 2]
 
-            avg_intensity_per_channel = np.mean(central_region.reshape(-1, 3), axis=0)
-            result = all(min_intensity <= i <= max_intensity for i in avg_intensity_per_channel)
+def get_quadrants(img, x_quad=2, y_quad=4):
+    # Dividir imagen en cuadrantes
+    y_sections = np.array_split(img, y_quad, axis=0)
 
-            return {
-                "status": "GO" if result else "NO GO",
-                "intensities": avg_intensity_per_channel.tolist(),
-                "path": image_path
-            }
-    except IOError:
-        return {
-            "status": "ERROR",
-            "intensities": None,
-            "path": image_path
-        }
+    quadrants = []
+    for section in y_sections:
+        x_sections = np.array_split(section, x_quad, axis=1)
+        quadrants.extend(x_sections)
 
-def process_images(image_paths):
-    results = []
-    with ThreadPoolExecutor() as executor:
-        futures = [executor.submit(check_image_illumination, path) for path in image_paths]
-        for future in futures:
-            results.append(future.result())
+    return quadrants
 
-    for result in results:
-        print(f"Image {result['path']}: Result: {result['status']}")
-        if result['intensities']:
-            print(f"Intensities - Red: {result['intensities'][0]}, Green: {result['intensities'][1]}, Blue: {result['intensities'][2]}")
 
-# Reemplazar con las rutas reales a las imágenes
-test_image_paths = [
-    'Images/1.PNG',
-    'Images/2.PNG',
-    # ... agregar todas las rutas de imagen
-]
+def sum_channels(channels):
+    red = channels[0]
+    green = channels[1]
+    blue = channels[2]
 
-process_images(test_image_paths)
+    sum = 0.2989 * red + 0.5870 * green + 0.1140 * blue
+
+    return round(sum, 2)
+
+
+def check_illumination(img_path):
+    # Leer imagen
+    img = Image.open(img_path).convert('RGB')
+
+    # Convertir a array
+    img_array = np.array(img)
+
+    # Dividir en cuadrantes
+    quadrants = get_quadrants(img_array)
+
+    status = "GO"
+
+    for q in quadrants:
+
+        # Promediar canales
+        red = q[:, :, 0].mean()
+        green = q[:, :, 1].mean()
+        blue = q[:, :, 2].mean()
+
+        # Sumar canales
+        intensity = sum_channels([red, green, blue])
+
+        # Verificar límites
+        if not (MIN_INTENSITY <= intensity <= MAX_INTENSITY):
+            status = "NO GO"
+            break
+
+    return {
+        "status": status
+    }
+
+
+# Ejemplo
+test_img = 'Images/REF_23.PNG'
+result = check_illumination(test_img)
+
+print(result["status"])
