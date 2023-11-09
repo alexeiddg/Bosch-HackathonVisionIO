@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>BOSCH Camera checker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--
+
+TemplateMo 570 Chain App Dev
+
+https://templatemo.com/tm-570-chain-app-dev
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/templatemo-chain-app-dev.css" />
+    <link rel="stylesheet" href="assets/css/animated.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+  </head>
+
+  <body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header
+      class="header-area header-sticky wow slideInDown"
+      data-wow-duration="0.75s"
+      data-wow-delay="0s"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Chain App Dev" />
+              </a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li class="scroll-to-section">
+                  <a href="#top" class="active">Home</a>
+                </li>
+                <li class="scroll-to-section">
+                  <a href="#services">Services</a>
+                </li>
+                <li class="scroll-to-section"><a href="#about">About</a></li>
+                <li class="scroll-to-section">
+                  <a href="#pricing">Pricing</a>
+                </li>
+                <li class="scroll-to-section">
+                  <a href="#newsletter">Newsletter</a>
+                </li>
+                <li>
+                  <div class="gradient-button">
+                    <a id="modal_trigger" href="#modal"
+                      ><i class="fa fa-sign-in-alt"></i> Sign In Now</a
+                    >
+                  </div>
+                </li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <div id="modal" class="popupContainer" style="display: none">
+      <div class="popupHeader">
+        <span class="header_title">Login</span>
+        <span class="modal_close"><i class="fa fa-times"></i></span>
+      </div>
+
+      <section class="popupBody">
+        <!-- Social Login -->
+        <div class="social_login">
+          <div class="">
+            <a href="#" class="social_box fb">
+              <span class="icon"><i class="fab fa-facebook"></i></span>
+              <span class="icon_title">Connect with Facebook</span>
+            </a>
+
+            <a href="#" class="social_box google">
+              <span class="icon"><i class="fab fa-google-plus"></i></span>
+              <span class="icon_title">Connect with Google</span>
+            </a>
+          </div>
+
+          <div class="centeredText">
+            <span>Or use your Email address</span>
+          </div>
+
+          <div class="action_btns">
+            <div class="one_half">
+              <a href="#" id="login_form" class="btn">Login</a>
+            </div>
+            <div class="one_half last">
+              <a href="#" id="register_form" class="btn">Sign up</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Username & Password Login form -->
+        <div class="user_login">
+          <form>
+            <label>Email / Username</label>
+            <input type="text" />
+            <br />
+
+            <label>Password</label>
+            <input type="password" />
+            <br />
+
+            <div class="checkbox">
+              <input id="remember" type="checkbox" />
+              <label for="remember">Remember me on this computer</label>
+            </div>
+
+            <div class="action_btns">
+              <div class="one_half">
+                <a href="#" class="btn back_btn"
+                  ><i class="fa fa-angle-double-left"></i> Back</a
+                >
+              </div>
+              <div class="one_half last">
+                <a href="#" class="btn btn_red">Login</a>
+              </div>
+            </div>
+          </form>
+
+          <a href="#" class="forgot_password">Forgot password?</a>
+        </div>
+
+        <!-- Register Form -->
+        <div class="user_register">
+          <form>
+            <label>Full Name</label>
+            <input type="text" />
+            <br />
+
+            <label>Email Address</label>
+            <input type="email" />
+            <br />
+
+            <label>Password</label>
+            <input type="password" />
+            <br />
+
+            <div class="checkbox">
+              <input id="send_updates" type="checkbox" />
+              <label for="send_updates">Send me occasional email updates</label>
+            </div>
+
+            <div class="action_btns">
+              <div class="one_half">
+                <a href="#" class="btn back_btn"
+                  ><i class="fa fa-angle-double-left"></i> Back</a
+                >
+              </div>
+              <div class="one_half last">
+                <a href="#" class="btn btn_red">Register</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <div
+      class="main-banner wow fadeIn"
+      id="top"
+      data-wow-duration="1s"
+      data-wow-delay="0.5s"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-6 align-self-center">
+                <div
+                  class="left-content show-up header-text wow fadeInLeft"
+                  data-wow-duration="1s"
+                  data-wow-delay="1s"
+                >
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <h2>Check the integrity of the cameras</h2>
+                      <p>
+                        In this web application you will be able to test the
+                        right functionality of your camera based on the images
+                        they capture and compared to a reference image.
+                      </p>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="white-button first-button scroll-to-section">
+                        <a href="#contact"
+                          >Run individual tests
+                          <i
+                            class="fa-solid fa-gears"
+                            style="color: #ffffff"
+                          ></i
+                        ></a>
+                      </div>
+                      <div class="white-button scroll-to-section">
+                        <a href="#contact"
+                          >Check files
+                          <i class="fa-solid fa-file" style="color: #ffffff"></i
+                        ></a>
+                      </div>
+                      <div class="white-button scroll-to-section">
+                        <a href="#contact"
+                          >See past results
+                          <i
+                            class="fa-solid fa-square-poll-vertical"
+                            style="color: #ffffff"
+                          ></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div
+                  class="right-image wow fadeInRight"
+                  data-wow-duration="1s"
+                  data-wow-delay="0.5s"
+                >
+                  <img src="assets/images/slider-dec.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="services" class="services section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <div
+              class="section-heading wow fadeInDown"
+              data-wow-duration="1s"
+              data-wow-delay="0.5s"
+            >
+              <h4>Seleccionar evaluación</h4>
+              <img src="assets/images/heading-line-dec.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="service-item first-service">
+              <div class="icon"></div>
+              <h4>Nitidez</h4>
+              <p>
+                Analizar a profundidad la Nitidez de las imagenes.  
+              </p>
+              <div class="text-button">
+                <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="service-item second-service">
+              <div class="icon"></div>
+              <h4>Iluminación</h4>
+              <p>
+                Analizar a profundidad la Iluminación de las imagenes.  
+              </p>
+              <div class="text-button">
+                <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="service-item third-service">
+              <div class="icon"></div>
+              <h4>Centrado</h4>
+              <p>
+                Analizar a profundidad la Centrado de las imagenes.
+              </p>
+              <div class="text-button">
+                <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="service-item fourth-service">
+              <div class="icon"></div>
+              <h4>Orientación</h4>
+              <p>
+                Analizar a profundidad la Orientación de las imagenes.
+              </p>
+              <div class="text-button">
+                <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pricing" class="pricing-tables">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div
+              class="section-heading wow fadeInDown"
+              data-wow-duration="1s"
+              data-wow-delay="0.5s"
+            >
+              <h4>Resultados</h4>
+              <img src="assets/images/heading-line-dec.png" alt="" />
+            </div>
+            <!--Crear una tabla de 4 columnas y 20 filas y centrarlo-->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nitidez</th>
+                  <th scope="col">Iluminación</th>
+                  <th scope="col">Red Intensity</th>
+                  <th scope="col">Green Intensity</th>
+                  <th scope="col">Blue Intensity</th>
+                  <th scope="col">Centrado</th>
+                  <th scope="col">Orientación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>true</td>
+                  <td>true</td>
+                  <td>182.71</td>
+                  <td>178.00</td>
+                  <td>171.87</td>
+                  <td>false</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>183.07</td>
+                  <td>181.22</td>
+                  <td>173.47</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>182.94</td>
+                  <td>180.04</td>
+                  <td>171.41</td>
+                  <td>false</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>178.11</td>
+                  <td>176.02</td>
+                  <td>169.96</td>
+                  <td>false</td>
+                  <td>false</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>184.11</td>
+                  <td>180.24</td>
+                  <td>170.77</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>112.20</td>
+                  <td>108.23</td>
+                  <td>100.60</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>181.71</td>
+                  <td>180.66</td>
+                  <td>170.84</td>
+                  <td>false</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>14</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>184.11</td>
+                  <td>181.00</td>
+                  <td>172.72</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>18</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>184.53</td>
+                  <td>181.70</td>
+                  <td>172.52</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>19</td>
+                  <td>false</td>
+                  <td>false</td>
+                  <td>182.75</td>
+                  <td>179.69</td>
+                  <td>168.91</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>20</td>
+                  <td>false</td>
+                  <td>false</td>
+                  <td>183.21</td>
+                  <td>182.91</td>
+                  <td>172.02</td>
+                  <td>false</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>21</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>182.13</td>
+                  <td>181.08</td>
+                  <td>171.12</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>22</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>181.80</td>
+                  <td>179.10</td>
+                  <td>174.00</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>24</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>252.53</td>
+                  <td>249.71</td>
+                  <td>235.61</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>26</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>183.15</td>
+                  <td>179.30</td>
+                  <td>169.28</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>27</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>182.03</td>
+                  <td>179.70</td>
+                  <td>173.15</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>28</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>183.25</td>
+                  <td>182.11</td>
+                  <td>172.42</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>29</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>185.72</td>
+                  <td>181.84</td>
+                  <td>173.15</td>
+                  <td>true</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>32</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>182.70</td>
+                  <td>181.94</td>
+                  <td>173.08</td>
+                  <td>false</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>36</td>
+                  <td>true</td>
+                  <td>false</td>
+                  <td>180.58</td>
+                  <td>177.53</td>
+                  <td>169.56</td>
+                  <td>false</td>
+                  <td>false</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/animation.js"></script>
+    <script src="assets/js/imagesloaded.js"></script>
+    <script src="assets/js/popup.js"></script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>
