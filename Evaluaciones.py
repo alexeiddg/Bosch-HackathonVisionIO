@@ -9,7 +9,7 @@ def orientacion(image, ref_image):
     height, width = gray_image.shape
 
     # Se obtiene la esquina superior derecha de la imagen
-    corner = gray_image[0:height//10, width - width//10:width]
+    corner = gray_image[0:height//4, width - width//4:width]
 
     # Se obtiene el histograma de la esquina superior derecha de la imagen
     hist_corner = cv2.calcHist([corner], [0], None, [256], [0, 256])
@@ -43,7 +43,7 @@ def orientacion(image, ref_image):
     percentage = range_image / range_ref
 
     # Se determina si la imagen se encuentra en el rango de la imagen de referencia
-    if percentage >= 0.8:
+    if percentage >= 1:
         return 'GO'
     else:
         return 'NO GO'
