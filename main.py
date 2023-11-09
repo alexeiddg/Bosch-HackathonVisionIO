@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import pandas as pd
+from Evaluaciones import *
 
 def is_image(img):
     # regresa true si la imagen se encuentra en la ruta especificada
@@ -29,28 +30,19 @@ def process_image(ref, image, df, i):
     blue_intensity = hist_image[129:192].sum()
 
     # Se calcula el centrado de la imagen
-    moments = cv2.moments(gray_image)
-    cx = int(moments['m10'] / moments['m00'])
-    cy = int(moments['m01'] / moments['m00'])
+    centered = centrado(image)
 
     # Se calcula la orientación de la imagen
-    (h, w) = gray_image.shape[:2]
-    center = (w // 2, h // 2)
-    M = cv2.getRotationMatrix2D(center, 0, 1.0)
-    rotated = cv2.warpAffine(gray_image, M, (w, h))
-    moments = cv2.moments(rotated)
-    cx_rotated = int(moments['m10'] / moments['m00'])
-    cy_rotated = int(moments['m01'] / moments['m00'])
-    orientation = np.arctan2(cy_rotated - cy, cx_rotated - cx) * 180 / np.pi + 180 - 90
+    orientation = orientacion(image, ref)
 
     # Se agregan los resultados a la tabla
-    df.loc[i] = [sharpness, red_intensity, green_intensity, blue_intensity, cx, orientation]
+    df.loc[i] = [i, sharpness, red_intensity, green_intensity, blue_intensity, centered, orientation]
 
 # Carga la imagen de referencia
 ref = cv2.imread('Images/REF_23.PNG')
 
 # Crear una tabla para depositar los resultados de las evaluaciones
-df = pd.DataFrame(columns=['Nitidez', 'Red Intensity', 'Green Intensity', 'Blue Intensity', 'Centrado', 'Orientacion'])
+df = pd.DataFrame(columns=['ID', 'Nitidez', 'Red Intensity', 'Green Intensity', 'Blue Intensity', 'Centrado', 'Orientacion'])
 
 for i in range(1, 37):
     if is_image('Images/' + str(i) + '.PNG'):

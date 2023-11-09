@@ -33,7 +33,7 @@ Evaluación de Centrado:
     La prueba debe de ser capaz de determinar si el centrado de las 20 imagenes proveídas estan dentro (pasa la prueba) o fuera (falla la prueba) de los límites de prueba establecidos.
 
 Evaluación de Orientación:
-    Se debe de determinar si la orientación de la imagen es la correcta respecto a la imagen de referencia. Para ello se tiene un cuadro negro en una de las esquinas de la imagen.
+    Se debe de determinar si la orientación de la imagen es la correcta respecto a la imagen de referencia. Para ello se tiene un cuadro negro en la esquina superior derecha, por lo que si esta no se encuentra entonces no tiene una orientacion correcta.
     Límites de prueba: GO / NO GO
     La prueba debe de ser capaz de determinar si la orientación de las 20 imágenes proveídas estan dentro de los límites de prueba (pasa la prueba) o fuera (falla la prueba).
 
