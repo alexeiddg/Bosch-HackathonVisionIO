@@ -1,8 +1,9 @@
-Welcome to Bosch-HackathonVisionIO!
+## [![Stack](https://skillicons.dev/icons?i=py)](https://skillicons.dev) Welcome to Bosch-HackathonVisionIO! 
+
 Project Overview:
 Bosch-HackathonVisionIO was conceived and executed during the intense and innovative environment of the Bosch Hackathon. This project aims to evaluate the quality of images previously captured by a video camera system. By applying a variety of digital image processing techniques, including signal analysis and customized filtering, our system measures the clarity, focus, and color intensity of the images, delivering a comprehensive assessment of each.
 
-Technology Stack:
+Technology Stack: 
 
 Programming Language: Python
 Image Processing Libraries: OpenCV, PIL, and custom-built tools for specialized analyses
