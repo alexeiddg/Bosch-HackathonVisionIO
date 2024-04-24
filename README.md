@@ -16,7 +16,7 @@ Setup Environment: Ensure Python and necessary libraries are installed. Clone th
 Running Tests: Execute main.py to start the evaluation process. The script automatically processes images stored in the Images directory.
 Review Results: After running the tests, the system will output a detailed report on the image quality, highlighting areas that meet or fail the specified criteria.
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Se debe crear un sistema de procesamiento de imágenes para evaluar la calidad de imágenes capturadas previamente por una cámara de video.
 Aplicar análisis de señales, filtros y parametrizaciones, para obtener una medición de la calidad de enfoque de las imágenes, entre otras pruebas.
 
