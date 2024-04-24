@@ -1,3 +1,22 @@
+Welcome to Bosch-HackathonVisionIO!
+Project Overview:
+Bosch-HackathonVisionIO was conceived and executed during the intense and innovative environment of the Bosch Hackathon. This project aims to evaluate the quality of images previously captured by a video camera system. By applying a variety of digital image processing techniques, including signal analysis and customized filtering, our system measures the clarity, focus, and color intensity of the images, delivering a comprehensive assessment of each.
+
+Technology Stack:
+
+Programming Language: Python
+Image Processing Libraries: OpenCV, PIL, and custom-built tools for specialized analyses
+Testing and Evaluation: Automated scripts to validate image quality against ISO standards
+Achievements:
+Our team successfully developed an algorithm capable of distinguishing between high and low-quality images based on pre-set standards, achieving remarkable accuracy. The solution not only met the hackathon's criteria but also showcased our ability to innovate under pressure and deliver technically sound and reliable software.
+
+Evaluation Instructions:
+
+Setup Environment: Ensure Python and necessary libraries are installed. Clone this repository and navigate into the project directory.
+Running Tests: Execute main.py to start the evaluation process. The script automatically processes images stored in the Images directory.
+Review Results: After running the tests, the system will output a detailed report on the image quality, highlighting areas that meet or fail the specified criteria.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Se debe crear un sistema de procesamiento de imágenes para evaluar la calidad de imágenes capturadas previamente por una cámara de video.
 Aplicar análisis de señales, filtros y parametrizaciones, para obtener una medición de la calidad de enfoque de las imágenes, entre otras pruebas.
 
